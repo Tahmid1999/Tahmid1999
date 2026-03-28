@@ -261,7 +261,17 @@ def save_state(state):
 # SVG & README GENERATION
 # ============================================================
 
-def generate_board_svg(board, last_move=None):
+def clean_old_boards():
+    """Delete all old board-*.svg files to keep repo clean."""
+    chess_dir = os.path.dirname(BOARD_SVG) or "chess"
+    if os.path.exists(chess_dir):
+        for f in os.listdir(chess_dir):
+            if f.startswith("board") and f.endswith(".svg"):
+                os.remove(os.path.join(chess_dir, f))
+
+
+def generate_board_svg(board, state, last_move=None):
+    """Generate board SVG with unique filename to bust GitHub's camo cache."""
     kwargs = {
         "size": 420,
         "coordinates": True,
@@ -278,9 +288,20 @@ def generate_board_svg(board, last_move=None):
         kwargs["check"] = board.king(board.turn)
 
     svg = chess.svg.board(board, **kwargs)
-    os.makedirs(os.path.dirname(BOARD_SVG), exist_ok=True)
-    with open(BOARD_SVG, 'w') as f:
+    chess_dir = os.path.dirname(BOARD_SVG) or "chess"
+    os.makedirs(chess_dir, exist_ok=True)
+
+    # Clean old board files first
+    clean_old_boards()
+
+    # Generate unique filename using move count
+    move_count = len(state.get("moves", []))
+    filename = f"board-{move_count}.svg"
+    filepath = os.path.join(chess_dir, filename)
+    with open(filepath, 'w') as f:
         f.write(svg)
+
+    return filename
 
 
 def make_move_link(uci, from_sq, to_sq, piece_name):
@@ -396,12 +417,14 @@ def update_readme(board, state):
     new_body = urllib.parse.quote("Start a fresh chess game vs AI!\n\n*Processed automatically.* ♟️")
     new_game_link = f"[🔄 New Game](https://github.com/{REPO}/issues/new?title={new_title}&body={new_body})"
 
-    cache_bust = int(time.time())
+    # Get the current board filename
+    move_count = len(state.get("moves", []))
+    board_file = f"board-{move_count}.svg"
 
     chess_md = f"""{status}
 
 <div align="center">
-  <img src="chess/board.svg?t={cache_bust}" alt="♟️ Community Chess" width="420" />
+  <img src="chess/{board_file}" alt="♟️ Community Chess" width="420" />
 </div>
 
 {history}
@@ -492,7 +515,7 @@ def handle_move(uci_str, player=None):
             state["result"] = board.result()
 
         save_state(state)
-        generate_board_svg(board, last_move)
+        generate_board_svg(board, state, last_move)
         update_readme(board, state)
 
         return True, result_msg + ai_msg
@@ -506,7 +529,7 @@ def handle_new_game():
     state = new_state()
     board = chess.Board()
     save_state(state)
-    generate_board_svg(board)
+    generate_board_svg(board, state)
     update_readme(board, state)
     return True, "🆕 New game started! **You play White** vs 🤖 **AI (Black)**.\n\nMake your first move on my [profile](https://github.com/Tahmid1999)!"
 
