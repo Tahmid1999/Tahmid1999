@@ -1,12 +1,9 @@
 {
-  "fen": "rnbqkbnr/pppppppp/8/8/8/P7/1PPPPPPP/RNBQKBNR b KQkq - 0 1",
-  "moves": [
-    "a2a3"
-  ],
-  "move_count": 1,
-  "players": {
-    "Tahmid1999": 1
-  },
+  "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+  "moves": [],
+  "move_count": 0,
+  "players": {},
   "game_over": false,
-  "result": null
+  "result": null,
+  "ai_enabled": true
 }
