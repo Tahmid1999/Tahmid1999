@@ -1,20 +1,20 @@
 <div align="center">
 
-<!-- Animated Header -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:161b22,100:30363d&height=220&section=header&text=Tahmid%20Alavi%20Ishmam&fontSize=42&fontColor=58a6ff&fontAlignY=35&desc=Full-Stack%20Developer%20%7C%20Mobile%20Architect%20%7C%20Automation%20Enthusiast&descSize=16&descColor=8b949e&descAlignY=55&animation=fadeIn" width="100%" />
+<!-- Animated Header - Gradient Banner -->
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1a1b27,25:1f6feb,50:58a6ff,75:1f6feb,100:1a1b27&height=230&section=header&text=Tahmid%20Alavi%20Ishmam&fontSize=44&fontColor=ffffff&fontAlignY=33&desc=Full-Stack%20Developer%20%7C%20Mobile%20Architect%20%7C%20Automation%20Enthusiast&descSize=17&descColor=c9d1d9&descAlignY=55&animation=twinkling" width="100%" />
 
 <!-- Typing Animation -->
-<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=3000&pause=1000&color=58A6FF&center=true&vCenter=true&multiline=true&repeat=true&width=600&height=100&lines=I+love+what+I+do%2C+I+do+what+I+love+%F0%9F%92%99;Building+mobile+experiences+that+matter+%F0%9F%93%B1;From+Hong+Kong+to+the+World+%F0%9F%8C%8F" alt="Typing SVG" /></a>
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=3000&pause=1000&color=58A6FF&center=true&vCenter=true&multiline=true&repeat=true&width=600&height=100&lines=I+love+what+I+do%2C+I+do+what+I+love+%F0%9F%92%99;Building+mobile+experiences+that+matter+%F0%9F%93%B1;Crafting+elegant+solutions+to+complex+problems+%E2%9C%A8" alt="Typing SVG" /></a>
 
 </div>
+
+---
 
 <!-- About Me Section -->
 ## 🧑‍💻 About Me
 
 ```yaml
 name: Tahmid Alavi Ishmam
-location: Hong Kong 🇭🇰
-company: Parkiosk Ltd Inc.
 role: Full-Stack Developer & Mobile Architect
 
 currently_working_on:
@@ -24,7 +24,7 @@ currently_working_on:
 
 passions:
   - Clean Architecture & Design Patterns
-  - Real-time Communication (WebRTC, LiveKit)
+  - Real-time Communication (WebRTC, LiveKit, Agora)
   - Building tools that solve real problems
 ```
 
@@ -70,6 +70,7 @@ passions:
 ### 🎥 Real-time & Streaming
 <p>
 <img src="https://img.shields.io/badge/LiveKit-FF5733?style=for-the-badge&logo=webrtc&logoColor=white" />
+<img src="https://img.shields.io/badge/Agora-099DFD?style=for-the-badge&logo=agora&logoColor=white" />
 <img src="https://img.shields.io/badge/WebRTC-333333?style=for-the-badge&logo=webrtc&logoColor=white" />
 <img src="https://img.shields.io/badge/WebSocket-010101?style=for-the-badge&logo=socket.io&logoColor=white" />
 </p>
@@ -82,14 +83,22 @@ passions:
 ## 📊 GitHub Analytics
 
 <div align="center">
-<a href="https://github.com/Tahmid1999">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=Tahmid1999&show_icons=true&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58a6ff&icon_color=58a6ff&text_color=c9d1d9&count_private=true" />
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Tahmid1999&layout=compact&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58a6ff&text_color=c9d1d9&langs_count=8" />
-</a>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats-sigma-five.vercel.app/api?username=Tahmid1999&show_icons=true&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58a6ff&icon_color=58a6ff&text_color=c9d1d9&count_private=true" />
+  <img height="180em" src="https://github-readme-stats-sigma-five.vercel.app/api?username=Tahmid1999&show_icons=true&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58a6ff&icon_color=58a6ff&text_color=c9d1d9&count_private=true" />
+</picture>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=Tahmid1999&layout=compact&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58a6ff&text_color=c9d1d9&langs_count=8" />
+  <img height="180em" src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=Tahmid1999&layout=compact&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58a6ff&text_color=c9d1d9&langs_count=8" />
+</picture>
+
 </div>
 
+<br/>
+
 <div align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Tahmid1999&theme=github-dark-blue&hide_border=true&background=0d1117&stroke=30363d&ring=58a6ff&fire=58a6ff&currStreakLabel=58a6ff" />
+  <img src="https://streak-stats.demolab.com/?user=Tahmid1999&theme=github-dark-blue&hide_border=true&background=0d1117&stroke=30363d&ring=58a6ff&fire=58a6ff&currStreakLabel=58a6ff" />
 </div>
 
 ---
@@ -99,15 +108,6 @@ passions:
 
 <div align="center">
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=Tahmid1999&bg_color=0d1117&color=58a6ff&line=58a6ff&point=c9d1d9&area=true&area_color=161b22&hide_border=true" width="95%"/>
-</div>
-
----
-
-<!-- Trophy Section -->
-## 🏆 GitHub Trophies
-
-<div align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=Tahmid1999&theme=darkhub&no-frame=true&no-bg=true&column=7&margin-w=10" />
 </div>
 
 ---
@@ -154,5 +154,5 @@ passions:
 ---
 
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:161b22,100:30363d&height=120&section=footer" width="100%" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:1a1b27,25:1f6feb,50:58a6ff,75:1f6feb,100:1a1b27&height=120&section=footer" width="100%" />
 </div>
