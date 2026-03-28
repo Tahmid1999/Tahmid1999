@@ -395,10 +395,12 @@ def update_readme(board, state):
     new_body = urllib.parse.quote("Start a fresh chess game vs AI!\n\n*Processed automatically.* ♟️")
     new_game_link = f"[🔄 New Game](https://github.com/{REPO}/issues/new?title={new_title}&body={new_body})"
 
+    move_count = len(state.get("moves", []))
+
     chess_md = f"""{status}
 
 <div align="center">
-  <img src="chess/board.svg" alt="♟️ Community Chess" width="420" />
+  <img src="chess/board.svg?v={move_count}" alt="♟️ Community Chess" width="420" />
 </div>
 
 {history}
