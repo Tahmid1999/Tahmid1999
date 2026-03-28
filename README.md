@@ -1,10 +1,16 @@
 <div align="center">
 
-<!-- Animated Header - Gradient Banner -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1a1b27,25:1f6feb,50:58a6ff,75:1f6feb,100:1a1b27&height=230&section=header&text=Tahmid%20Alavi%20Ishmam&fontSize=44&fontColor=ffffff&fontAlignY=33&desc=Full-Stack%20Developer%20%7C%20Mobile%20Architect%20%7C%20Automation%20Enthusiast&descSize=17&descColor=c9d1d9&descAlignY=55&animation=twinkling" width="100%" />
-
 <!-- Typing Animation -->
-<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=3000&pause=1000&color=58A6FF&center=true&vCenter=true&multiline=true&repeat=true&width=600&height=100&lines=I+love+what+I+do%2C+I+do+what+I+love+%F0%9F%92%99;Building+mobile+experiences+that+matter+%F0%9F%93%B1;Crafting+elegant+solutions+to+complex+problems+%E2%9C%A8" alt="Typing SVG" /></a>
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=28&duration=3000&pause=1000&color=58A6FF&center=true&vCenter=true&multiline=true&repeat=true&width=600&height=80&lines=Hey+there!+I'm+Tahmid+%F0%9F%91%8B;Full-Stack+Developer+%7C+Mobile+Architect" alt="Typing SVG" /></a>
+
+<br/>
+
+<!-- Snake Contribution Graph -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Tahmid1999/Tahmid1999/output/github-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Tahmid1999/Tahmid1999/output/github-snake.svg" />
+  <img alt="github-snake" src="https://raw.githubusercontent.com/Tahmid1999/Tahmid1999/output/github-snake.svg" />
+</picture>
 
 </div>
 
@@ -146,7 +152,6 @@ passions:
 
 <br/><br/>
 
-<!-- Profile Views Counter -->
 <img src="https://komarev.com/ghpvc/?username=Tahmid1999&style=for-the-badge&color=58a6ff&label=PROFILE+VIEWS" />
 
 </div>
@@ -154,5 +159,5 @@ passions:
 ---
 
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:1a1b27,25:1f6feb,50:58a6ff,75:1f6feb,100:1a1b27&height=120&section=footer" width="100%" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:1a1b27,25:1f6feb,50:58a6ff,75:1f6feb,100:1a1b27&height=100&section=footer" width="100%" />
 </div>
