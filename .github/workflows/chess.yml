@@ -1,0 +1,71 @@
+name: Community Chess
+
+on:
+  issues:
+    types: [opened]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  chess:
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      startsWith(github.event.issue.title, 'chess|')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r chess/requirements.txt
+
+      - name: Process chess command
+        id: chess
+        env:
+          ISSUE_TITLE: ${{ github.event.issue.title || 'chess|new' }}
+          ISSUE_AUTHOR: ${{ github.event.issue.user.login || 'system' }}
+        run: |
+          IFS='|' read -ra PARTS <<< "$ISSUE_TITLE"
+          COMMAND="${PARTS[1]}"
+
+          if [ "$COMMAND" = "move" ]; then
+            MOVE="${PARTS[2]}"
+            OUTPUT=$(python chess/chess_game.py move "$MOVE" "$ISSUE_AUTHOR" 2>&1) || true
+            echo "result<<EOF" >> $GITHUB_OUTPUT
+            echo "$OUTPUT" >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
+          elif [ "$COMMAND" = "new" ]; then
+            OUTPUT=$(python chess/chess_game.py new 2>&1) || true
+            echo "result<<EOF" >> $GITHUB_OUTPUT
+            echo "$OUTPUT" >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "Chess Bot ♟️"
+          git config --global user.email "chess-bot@users.noreply.github.com"
+          git add -A
+          git diff --staged --quiet || git commit -m "♟️ ${{ github.event.issue.title || 'New Game' }}"
+          git push
+
+      - name: Close issue with result
+        if: github.event_name == 'issues'
+        uses: peter-evans/close-issue@v3
+        with:
+          comment: |
+            ♟️ **Chess Bot**
+
+            ${{ steps.chess.outputs.result }}
+
+            🔗 [View the board on my profile](https://github.com/Tahmid1999)

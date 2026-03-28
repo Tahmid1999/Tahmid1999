@@ -16,6 +16,17 @@
 
 ---
 
+<!-- Community Chess Game -->
+## ♟️ Community Chess — Let's Play!
+
+*Anyone can make a move! Click a link below to play.*
+
+<!-- CHESS:START -->
+*Loading chess board... The game will initialize shortly.*
+<!-- CHESS:END -->
+
+---
+
 <!-- About Me Section -->
 ## 🧑‍💻 About Me
 
