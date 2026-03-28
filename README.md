@@ -22,7 +22,42 @@
 *Anyone can make a move! Click a link below to play.*
 
 <!-- CHESS:START -->
-*Loading chess board... The game will initialize shortly.*
+Move **#1**
+
+<div align="center">
+  <img src="chess/board.svg" alt="♟️ Community Chess" width="420" />
+</div>
+
+
+
+> ⬜ **White's turn** — Click any move below to play!
+
+<details open><summary>🎯 Available Moves</summary>
+
+**♞ Knight**
+
+| From | Available Moves |
+|:----:|:----------------|
+| **b1** | [`a3`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Cb1a3&body=I%27m%20making%20a%20move%3A%20%2A%2AKnight%2A%2A%20from%20%60b1%60%20to%20%60a3%60%0A%0A%2AThis%20issue%20will%20be%20automatically%20processed%20and%20closed%20by%20the%20Chess%20Bot.%2A%20%E2%99%9F%EF%B8%8F) [`c3`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Cb1c3&body=I%27m%20making%20a%20move%3A%20%2A%2AKnight%2A%2A%20from%20%60b1%60%20to%20%60c3%60%0A%0A%2AThis%20issue%20will%20be%20automatically%20processed%20and%20closed%20by%20the%20Chess%20Bot.%2A%20%E2%99%9F%EF%B8%8F) |
+| **g1** | [`f3`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Cg1f3&body=I%27m%20making%20a%20move%3A%20%2A%2AKnight%2A%2A%20from%20%60g1%60%20to%20%60f3%60%0A%0A%2AThis%20issue%20will%20be%20automatically%20processed%20and%20closed%20by%20the%20Chess%20Bot.%2A%20%E2%99%9F%EF%B8%8F) [`h3`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Cg1h3&body=I%27m%20making%20a%20move%3A%20%2A%2AKnight%2A%2A%20from%20%60g1%60%20to%20%60h3%60%0A%0A%2AThis%20issue%20will%20be%20automatically%20processed%20and%20closed%20by%20the%20Chess%20Bot.%2A%20%E2%99%9F%EF%B8%8F) |
+
+**♟ Pawn**
+
+| From | Available Moves |
+|:----:|:----------------|
+| **a2** | [`a3`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Ca2a3&body=I%27m%20making%20a%20move%3A%20%2A%2APawn%2A%2A%20from%20%60a2%60%20to%20%60a3%60%0A%0A%2AThis%20issue%20will%20be%20automatically%20processed%20and%20closed%20by%20the%20Chess%20Bot.%2A%20%E2%99%9F%EF%B8%8F) [`a4`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Ca2a4&body=I%27m%20making%20a%20move%3A%20%2A%2APawn%2A%2A%20from%20%60a2%60%20to%20%60a4%60%0A%0A%2AThis%20issue%20will%20be%20automatically%20processed%20and%20closed%20by%20the%20Chess%20Bot.%2A%20%E2%99%9F%EF%B8%8F) |
+| **b2** | [`b3`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Cb2b3&body=I%27m%20making%20a%20move%3A%20%2A%2APawn%2A%2A%20from%20%60b2%60%20to%20%60b3%60%0A%0A%2AThis%20issue%20will%20be%20automatically%20processed%20and%20closed%20by%20the%20Chess%20Bot.%2A%20%E2%99%9F%EF%B8%8F) [`b4`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Cb2b4&body=I%27m%20making%20a%20move%3A%20%2A%2APawn%2A%2A%20from%20%60b2%60%20to%20%60b4%60%0A%0A%2AThis%20issue%20will%20be%20automatically%20processed%20and%20closed%20by%20the%20Chess%20Bot.%2A%20%E2%99%9F%EF%B8%8F) |
+| **c2** | [`c3`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Cc2c3&body=I%27m%20making%20a%20move%3A%20%2A%2APawn%2A%2A%20from%20%60c2%60%20to%20%60c3%60%0A%0A%2AThis%20issue%20will%20be%20automatically%20processed%20and%20closed%20by%20the%20Chess%20Bot.%2A%20%E2%99%9F%EF%B8%8F) [`c4`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Cc2c4&body=I%27m%20making%20a%20move%3A%20%2A%2APawn%2A%2A%20from%20%60c2%60%20to%20%60c4%60%0A%0A%2AThis%20issue%20will%20be%20automatically%20processed%20and%20closed%20by%20the%20Chess%20Bot.%2A%20%E2%99%9F%EF%B8%8F) |
+| **d2** | [`d3`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Cd2d3&body=I%27m%20making%20a%20move%3A%20%2A%2APawn%2A%2A%20from%20%60d2%60%20to%20%60d3%60%0A%0A%2AThis%20issue%20will%20be%20automatically%20processed%20and%20closed%20by%20the%20Chess%20Bot.%2A%20%E2%99%9F%EF%B8%8F) [`d4`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Cd2d4&body=I%27m%20making%20a%20move%3A%20%2A%2APawn%2A%2A%20from%20%60d2%60%20to%20%60d4%60%0A%0A%2AThis%20issue%20will%20be%20automatically%20processed%20and%20closed%20by%20the%20Chess%20Bot.%2A%20%E2%99%9F%EF%B8%8F) |
+| **e2** | [`e3`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Ce2e3&body=I%27m%20making%20a%20move%3A%20%2A%2APawn%2A%2A%20from%20%60e2%60%20to%20%60e3%60%0A%0A%2AThis%20issue%20will%20be%20automatically%20processed%20and%20closed%20by%20the%20Chess%20Bot.%2A%20%E2%99%9F%EF%B8%8F) [`e4`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Ce2e4&body=I%27m%20making%20a%20move%3A%20%2A%2APawn%2A%2A%20from%20%60e2%60%20to%20%60e4%60%0A%0A%2AThis%20issue%20will%20be%20automatically%20processed%20and%20closed%20by%20the%20Chess%20Bot.%2A%20%E2%99%9F%EF%B8%8F) |
+| **f2** | [`f3`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Cf2f3&body=I%27m%20making%20a%20move%3A%20%2A%2APawn%2A%2A%20from%20%60f2%60%20to%20%60f3%60%0A%0A%2AThis%20issue%20will%20be%20automatically%20processed%20and%20closed%20by%20the%20Chess%20Bot.%2A%20%E2%99%9F%EF%B8%8F) [`f4`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Cf2f4&body=I%27m%20making%20a%20move%3A%20%2A%2APawn%2A%2A%20from%20%60f2%60%20to%20%60f4%60%0A%0A%2AThis%20issue%20will%20be%20automatically%20processed%20and%20closed%20by%20the%20Chess%20Bot.%2A%20%E2%99%9F%EF%B8%8F) |
+| **g2** | [`g3`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Cg2g3&body=I%27m%20making%20a%20move%3A%20%2A%2APawn%2A%2A%20from%20%60g2%60%20to%20%60g3%60%0A%0A%2AThis%20issue%20will%20be%20automatically%20processed%20and%20closed%20by%20the%20Chess%20Bot.%2A%20%E2%99%9F%EF%B8%8F) [`g4`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Cg2g4&body=I%27m%20making%20a%20move%3A%20%2A%2APawn%2A%2A%20from%20%60g2%60%20to%20%60g4%60%0A%0A%2AThis%20issue%20will%20be%20automatically%20processed%20and%20closed%20by%20the%20Chess%20Bot.%2A%20%E2%99%9F%EF%B8%8F) |
+| **h2** | [`h3`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Ch2h3&body=I%27m%20making%20a%20move%3A%20%2A%2APawn%2A%2A%20from%20%60h2%60%20to%20%60h3%60%0A%0A%2AThis%20issue%20will%20be%20automatically%20processed%20and%20closed%20by%20the%20Chess%20Bot.%2A%20%E2%99%9F%EF%B8%8F) [`h4`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Ch2h4&body=I%27m%20making%20a%20move%3A%20%2A%2APawn%2A%2A%20from%20%60h2%60%20to%20%60h4%60%0A%0A%2AThis%20issue%20will%20be%20automatically%20processed%20and%20closed%20by%20the%20Chess%20Bot.%2A%20%E2%99%9F%EF%B8%8F) |
+
+</details>
+
+
+[🔄 New Game](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cnew&body=Start%20a%20fresh%20chess%20game%21%0A%0A%2AProcessed%20automatically%20by%20Chess%20Bot.%2A%20%E2%99%9F%EF%B8%8F)
 <!-- CHESS:END -->
 
 ---
