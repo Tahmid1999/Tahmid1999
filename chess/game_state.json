@@ -1,12 +1,14 @@
 {
-  "fen": "rnbqkb1r/pppppppp/5n2/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 1 2",
+  "fen": "rnbqkb1r/pppppppp/8/8/2P1n3/8/PP1P1PPP/RNBQKBNR w KQkq - 0 3",
   "moves": [
     "e2e4",
-    "g8f6"
+    "g8f6",
+    "c2c4",
+    "f6e4"
   ],
-  "move_count": 2,
+  "move_count": 4,
   "players": {
-    "Tahmid1999": 1
+    "Tahmid1999": 2
   },
   "game_over": false,
   "result": null,
