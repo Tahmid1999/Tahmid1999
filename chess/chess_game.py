@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Community Chess Game for GitHub Profile README.
-Anyone can play by clicking move links that create GitHub Issues.
-A GitHub Action processes the move and updates the board.
+Community Chess Game with AI Opponent for GitHub Profile README.
+Visitors play as White, AI plays as Black automatically.
+Uses minimax with alpha-beta pruning for move selection.
 """
 
 import chess
@@ -11,6 +11,7 @@ import json
 import os
 import sys
 import urllib.parse
+import random
 
 # Configuration
 REPO = "Tahmid1999/Tahmid1999"
@@ -19,28 +20,218 @@ BOARD_SVG = "chess/board.svg"
 README_FILE = "README.md"
 START_MARKER = "<!-- CHESS:START -->"
 END_MARKER = "<!-- CHESS:END -->"
+AI_DEPTH = 3  # Search depth for minimax
 
 PIECE_SYMBOLS = {
-    chess.PAWN: "♟",
-    chess.KNIGHT: "♞",
-    chess.BISHOP: "♝",
-    chess.ROOK: "♜",
-    chess.QUEEN: "♛",
-    chess.KING: "♚",
+    chess.PAWN: "♟", chess.KNIGHT: "♞", chess.BISHOP: "♝",
+    chess.ROOK: "♜", chess.QUEEN: "♛", chess.KING: "♚",
 }
-
 PIECE_NAMES = {
-    chess.PAWN: "Pawn",
-    chess.KNIGHT: "Knight",
-    chess.BISHOP: "Bishop",
-    chess.ROOK: "Rook",
-    chess.QUEEN: "Queen",
-    chess.KING: "King",
+    chess.PAWN: "Pawn", chess.KNIGHT: "Knight", chess.BISHOP: "Bishop",
+    chess.ROOK: "Rook", chess.QUEEN: "Queen", chess.KING: "King",
 }
 
+# ============================================================
+# CHESS AI ENGINE - Minimax with Alpha-Beta Pruning
+# ============================================================
+
+# Piece values
+PIECE_VALUES = {
+    chess.PAWN: 100, chess.KNIGHT: 320, chess.BISHOP: 330,
+    chess.ROOK: 500, chess.QUEEN: 900, chess.KING: 20000,
+}
+
+# Piece-square tables (from White's perspective, flipped for Black)
+PAWN_TABLE = [
+     0,  0,  0,  0,  0,  0,  0,  0,
+    50, 50, 50, 50, 50, 50, 50, 50,
+    10, 10, 20, 30, 30, 20, 10, 10,
+     5,  5, 10, 25, 25, 10,  5,  5,
+     0,  0,  0, 20, 20,  0,  0,  0,
+     5, -5,-10,  0,  0,-10, -5,  5,
+     5, 10, 10,-20,-20, 10, 10,  5,
+     0,  0,  0,  0,  0,  0,  0,  0,
+]
+
+KNIGHT_TABLE = [
+    -50,-40,-30,-30,-30,-30,-40,-50,
+    -40,-20,  0,  0,  0,  0,-20,-40,
+    -30,  0, 10, 15, 15, 10,  0,-30,
+    -30,  5, 15, 20, 20, 15,  5,-30,
+    -30,  0, 15, 20, 20, 15,  0,-30,
+    -30,  5, 10, 15, 15, 10,  5,-30,
+    -40,-20,  0,  5,  5,  0,-20,-40,
+    -50,-40,-30,-30,-30,-30,-40,-50,
+]
+
+BISHOP_TABLE = [
+    -20,-10,-10,-10,-10,-10,-10,-20,
+    -10,  0,  0,  0,  0,  0,  0,-10,
+    -10,  0, 10, 10, 10, 10,  0,-10,
+    -10,  5,  5, 10, 10,  5,  5,-10,
+    -10,  0,  5, 10, 10,  5,  0,-10,
+    -10, 10, 10, 10, 10, 10, 10,-10,
+    -10,  5,  0,  0,  0,  0,  5,-10,
+    -20,-10,-10,-10,-10,-10,-10,-20,
+]
+
+ROOK_TABLE = [
+     0,  0,  0,  0,  0,  0,  0,  0,
+     5, 10, 10, 10, 10, 10, 10,  5,
+    -5,  0,  0,  0,  0,  0,  0, -5,
+    -5,  0,  0,  0,  0,  0,  0, -5,
+    -5,  0,  0,  0,  0,  0,  0, -5,
+    -5,  0,  0,  0,  0,  0,  0, -5,
+    -5,  0,  0,  0,  0,  0,  0, -5,
+     0,  0,  0,  5,  5,  0,  0,  0,
+]
+
+QUEEN_TABLE = [
+    -20,-10,-10, -5, -5,-10,-10,-20,
+    -10,  0,  0,  0,  0,  0,  0,-10,
+    -10,  0,  5,  5,  5,  5,  0,-10,
+     -5,  0,  5,  5,  5,  5,  0, -5,
+      0,  0,  5,  5,  5,  5,  0, -5,
+    -10,  5,  5,  5,  5,  5,  0,-10,
+    -10,  0,  5,  0,  0,  0,  0,-10,
+    -20,-10,-10, -5, -5,-10,-10,-20,
+]
+
+KING_TABLE_MID = [
+    -30,-40,-40,-50,-50,-40,-40,-30,
+    -30,-40,-40,-50,-50,-40,-40,-30,
+    -30,-40,-40,-50,-50,-40,-40,-30,
+    -30,-40,-40,-50,-50,-40,-40,-30,
+    -20,-30,-30,-40,-40,-30,-30,-20,
+    -10,-20,-20,-20,-20,-20,-20,-10,
+     20, 20,  0,  0,  0,  0, 20, 20,
+     20, 30, 10,  0,  0, 10, 30, 20,
+]
+
+PST = {
+    chess.PAWN: PAWN_TABLE,
+    chess.KNIGHT: KNIGHT_TABLE,
+    chess.BISHOP: BISHOP_TABLE,
+    chess.ROOK: ROOK_TABLE,
+    chess.QUEEN: QUEEN_TABLE,
+    chess.KING: KING_TABLE_MID,
+}
+
+
+def evaluate_board(board):
+    """Evaluate the board position. Positive = White advantage, Negative = Black advantage."""
+    if board.is_checkmate():
+        return -99999 if board.turn == chess.WHITE else 99999
+    if board.is_stalemate() or board.is_insufficient_material():
+        return 0
+
+    score = 0
+    for square in chess.SQUARES:
+        piece = board.piece_at(square)
+        if piece is None:
+            continue
+
+        # Material value
+        value = PIECE_VALUES[piece.piece_type]
+
+        # Positional value from piece-square tables
+        if piece.color == chess.WHITE:
+            pst_index = chess.square_mirror(square)
+            value += PST[piece.piece_type][pst_index]
+            score += value
+        else:
+            value += PST[piece.piece_type][square]
+            score -= value
+
+    # Mobility bonus
+    mobility = len(list(board.legal_moves))
+    if board.turn == chess.WHITE:
+        score += mobility * 2
+    else:
+        score -= mobility * 2
+
+    return score
+
+
+def order_moves(board):
+    """Order moves for better alpha-beta pruning (captures first, then checks)."""
+    moves = list(board.legal_moves)
+
+    def move_score(move):
+        score = 0
+        # Prioritize captures (MVV-LVA: Most Valuable Victim - Least Valuable Attacker)
+        if board.is_capture(move):
+            victim = board.piece_at(move.to_square)
+            attacker = board.piece_at(move.from_square)
+            if victim and attacker:
+                score += PIECE_VALUES.get(victim.piece_type, 0) * 10 - PIECE_VALUES.get(attacker.piece_type, 0)
+            else:
+                score += 500
+        # Prioritize promotions
+        if move.promotion:
+            score += 800
+        # Prioritize checks
+        board.push(move)
+        if board.is_check():
+            score += 300
+        board.pop()
+        return -score  # Negative for descending sort
+
+    moves.sort(key=move_score)
+    return moves
+
+
+def minimax(board, depth, alpha, beta, maximizing):
+    """Minimax algorithm with alpha-beta pruning."""
+    if depth == 0 or board.is_game_over():
+        return evaluate_board(board), None
+
+    best_move = None
+
+    if maximizing:  # White
+        max_eval = float('-inf')
+        for move in order_moves(board):
+            board.push(move)
+            eval_score, _ = minimax(board, depth - 1, alpha, beta, False)
+            board.pop()
+            if eval_score > max_eval:
+                max_eval = eval_score
+                best_move = move
+            alpha = max(alpha, eval_score)
+            if beta <= alpha:
+                break
+        return max_eval, best_move
+    else:  # Black (AI)
+        min_eval = float('inf')
+        for move in order_moves(board):
+            board.push(move)
+            eval_score, _ = minimax(board, depth - 1, alpha, beta, True)
+            board.pop()
+            if eval_score < min_eval:
+                min_eval = eval_score
+                best_move = move
+            beta = min(beta, eval_score)
+            if beta <= alpha:
+                break
+        return min_eval, best_move
+
+
+def get_ai_move(board):
+    """Get the best move for the AI (Black) using minimax."""
+    _, best_move = minimax(board, AI_DEPTH, float('-inf'), float('inf'), False)
+    if best_move is None:
+        # Fallback to random legal move
+        legal_moves = list(board.legal_moves)
+        if legal_moves:
+            best_move = random.choice(legal_moves)
+    return best_move
+
+
+# ============================================================
+# GAME STATE MANAGEMENT
+# ============================================================
 
 def load_state():
-    """Load game state from JSON file."""
     if os.path.exists(STATE_FILE):
         with open(STATE_FILE, 'r') as f:
             return json.load(f)
@@ -48,26 +239,28 @@ def load_state():
 
 
 def new_state():
-    """Create a fresh game state."""
     return {
         "fen": chess.STARTING_FEN,
         "moves": [],
         "move_count": 0,
         "players": {},
         "game_over": False,
-        "result": None
+        "result": None,
+        "ai_enabled": True
     }
 
 
 def save_state(state):
-    """Save game state to JSON file."""
     os.makedirs(os.path.dirname(STATE_FILE), exist_ok=True)
     with open(STATE_FILE, 'w') as f:
         json.dump(state, f, indent=2)
 
 
+# ============================================================
+# SVG & README GENERATION
+# ============================================================
+
 def generate_board_svg(board, last_move=None):
-    """Generate a beautiful SVG chess board."""
     kwargs = {
         "size": 420,
         "coordinates": True,
@@ -90,21 +283,22 @@ def generate_board_svg(board, last_move=None):
 
 
 def make_move_link(uci, from_sq, to_sq, piece_name):
-    """Create a clickable GitHub Issue link for a chess move."""
     title = urllib.parse.quote(f"chess|move|{uci}")
     body = urllib.parse.quote(
-        f"I'm making a move: **{piece_name}** from `{from_sq}` to `{to_sq}`\n\n"
-        f"*This issue will be automatically processed and closed by the Chess Bot.* ♟️"
+        f"I'm playing **{piece_name}** from `{from_sq}` → `{to_sq}`\n\n"
+        f"*The AI will respond automatically!* 🤖♟️"
     )
     return f"[`{to_sq}`](https://github.com/{REPO}/issues/new?title={title}&body={body})"
 
 
 def generate_moves_markdown(board):
-    """Generate organized, clickable move links."""
     if board.is_game_over():
         return ""
 
-    # Group moves by piece type and from-square
+    # Only show White's moves (human plays White)
+    if board.turn != chess.WHITE:
+        return ""
+
     moves_by_piece = {}
     for move in board.legal_moves:
         piece = board.piece_at(move.from_square)
@@ -116,11 +310,8 @@ def generate_moves_markdown(board):
             moves_by_piece[pt][from_sq] = []
         moves_by_piece[pt][from_sq].append(move)
 
-    turn = "White" if board.turn == chess.WHITE else "Black"
-    turn_icon = "⬜" if board.turn == chess.WHITE else "⬛"
-
     lines = []
-    lines.append(f"> {turn_icon} **{turn}'s turn** — Click any move below to play!\n")
+    lines.append("> ⬜ **Your turn (White)** — Click any move, the AI will respond! 🤖\n")
     lines.append("<details open><summary>🎯 Available Moves</summary>\n")
 
     piece_order = [chess.KING, chess.QUEEN, chess.ROOK, chess.BISHOP, chess.KNIGHT, chess.PAWN]
@@ -148,18 +339,16 @@ def generate_moves_markdown(board):
         lines.append("")
 
     lines.append("</details>\n")
-
     return "\n".join(lines)
 
 
 def generate_game_status(board, state):
-    """Generate status line for the game."""
     move_count = len(state.get("moves", []))
     total_players = len(state.get("players", {}))
 
     if board.is_game_over():
         if board.is_checkmate():
-            winner = "Black" if board.turn == chess.WHITE else "White"
+            winner = "Black (🤖 AI)" if board.turn == chess.WHITE else "White (You!)"
             return f"🏆 **Checkmate! {winner} wins!** ({move_count} moves, {total_players} players)"
         elif board.is_stalemate():
             return f"🤝 **Stalemate — Draw!** ({move_count} moves)"
@@ -168,45 +357,42 @@ def generate_game_status(board, state):
         else:
             return f"🤝 **Draw!** ({move_count} moves)"
 
-    status_parts = [f"Move **#{move_count + 1}**"]
+    status = f"⬜ You (White) vs 🤖 AI (Black) · Move **#{move_count + 1}**"
     if total_players > 0:
-        status_parts.append(f"👥 {total_players} players")
+        status += f" · 👥 {total_players} players so far"
     if board.is_check():
-        status_parts.append("⚠️ **CHECK!**")
-
-    return " · ".join(status_parts)
+        status += " · ⚠️ **CHECK!**"
+    return status
 
 
 def generate_move_history(state):
-    """Generate a compact move history."""
     moves = state.get("moves", [])
     if not moves:
         return ""
 
-    # Show last 10 moves in algebraic-ish notation
     recent = moves[-10:]
     start_idx = len(moves) - len(recent)
 
     pairs = []
     for i in range(0, len(recent), 2):
         num = (start_idx + i) // 2 + 1
+        white_move = recent[i]
         if i + 1 < len(recent):
-            pairs.append(f"{num}. `{recent[i]}` `{recent[i+1]}`")
+            black_move = recent[i + 1]
+            pairs.append(f"{num}. `{white_move}` `{black_move}`🤖")
         else:
-            pairs.append(f"{num}. `{recent[i]}`")
+            pairs.append(f"{num}. `{white_move}`")
 
     return "📜 **Recent:** " + " ".join(pairs)
 
 
 def update_readme(board, state):
-    """Update the chess section in README.md between markers."""
     status = generate_game_status(board, state)
     moves_md = generate_moves_markdown(board)
     history = generate_move_history(state)
 
-    # New game link
     new_title = urllib.parse.quote("chess|new")
-    new_body = urllib.parse.quote("Start a fresh chess game!\n\n*Processed automatically by Chess Bot.* ♟️")
+    new_body = urllib.parse.quote("Start a fresh chess game vs AI!\n\n*Processed automatically.* ♟️")
     new_game_link = f"[🔄 New Game](https://github.com/{REPO}/issues/new?title={new_title}&body={new_body})"
 
     chess_md = f"""{status}
@@ -221,87 +407,110 @@ def update_readme(board, state):
 
 {new_game_link}"""
 
-    # Read current README
     with open(README_FILE, 'r', encoding='utf-8') as f:
         content = f.read()
 
-    # Replace between markers
     if START_MARKER in content and END_MARKER in content:
         before = content.split(START_MARKER)[0]
         after = content.split(END_MARKER)[1]
         content = f"{before}{START_MARKER}\n{chess_md}\n{END_MARKER}{after}"
-    else:
-        print("WARNING: Chess markers not found in README!")
 
     with open(README_FILE, 'w', encoding='utf-8') as f:
         f.write(content)
 
 
+# ============================================================
+# MOVE HANDLERS
+# ============================================================
+
 def handle_move(uci_str, player=None):
-    """Process a chess move."""
+    """Process a human move (White) and then make AI move (Black)."""
     state = load_state()
     board = chess.Board(state["fen"])
 
     if board.is_game_over():
         return False, "Game is already over! Click 'New Game' to start fresh."
 
+    if board.turn != chess.WHITE:
+        return False, "❌ It's the AI's turn — this shouldn't happen!"
+
     try:
         move = chess.Move.from_uci(uci_str)
         if move not in board.legal_moves:
             return False, f"❌ Illegal move: `{uci_str}`"
 
-        # Get piece info before pushing
+        # --- HUMAN MOVE (WHITE) ---
         piece = board.piece_at(move.from_square)
         piece_name = PIECE_NAMES.get(piece.piece_type, "Piece")
         from_sq = chess.square_name(move.from_square)
         to_sq = chess.square_name(move.to_square)
 
         board.push(move)
-
-        # Update state
         state["fen"] = board.fen()
         state["moves"].append(uci_str)
-        state["move_count"] = len(state["moves"])
         if player:
             state["players"][player] = state["players"].get(player, 0) + 1
+
+        result_msg = f"⬜ **You** moved **{piece_name}** `{from_sq}` → `{to_sq}`"
+
+        if board.is_check():
+            result_msg += " — ⚠️ Check!"
+        if board.is_checkmate():
+            result_msg += "\n\n🏆 **Checkmate! You win!** 🎉"
+
+        # --- AI MOVE (BLACK) ---
+        ai_msg = ""
+        last_move = move
+
+        if not board.is_game_over() and board.turn == chess.BLACK:
+            ai_move = get_ai_move(board)
+            if ai_move:
+                ai_piece = board.piece_at(ai_move.from_square)
+                ai_piece_name = PIECE_NAMES.get(ai_piece.piece_type, "Piece")
+                ai_from = chess.square_name(ai_move.from_square)
+                ai_to = chess.square_name(ai_move.to_square)
+
+                board.push(ai_move)
+                state["fen"] = board.fen()
+                state["moves"].append(ai_move.uci())
+                last_move = ai_move
+
+                ai_msg = f"\n🤖 **AI** responded **{ai_piece_name}** `{ai_from}` → `{ai_to}`"
+
+                if board.is_check():
+                    ai_msg += " — ⚠️ Check!"
+                if board.is_checkmate():
+                    ai_msg += "\n\n🏆 **Checkmate! AI wins!** 🤖"
+
+        # --- UPDATE STATE ---
+        state["move_count"] = len(state["moves"])
         state["game_over"] = board.is_game_over()
         if board.is_game_over():
             state["result"] = board.result()
 
         save_state(state)
-        generate_board_svg(board, move)
+        generate_board_svg(board, last_move)
         update_readme(board, state)
 
-        result_msg = f"✅ **{piece_name}** moved from `{from_sq}` to `{to_sq}`"
-        if player:
-            result_msg += f" by @{player}"
-        if board.is_check():
-            result_msg += " — ⚠️ **Check!**"
-        if board.is_checkmate():
-            winner = "Black" if board.turn == chess.WHITE else "White"
-            result_msg += f"\n\n🏆 **Checkmate! {winner} wins!**"
-
-        return True, result_msg
+        return True, result_msg + ai_msg
 
     except ValueError as e:
         return False, f"❌ Invalid move format: `{e}`"
 
 
 def handle_new_game():
-    """Start a brand new game."""
+    """Start a new game."""
     state = new_state()
     board = chess.Board()
     save_state(state)
     generate_board_svg(board)
     update_readme(board, state)
-    return True, "🆕 New chess game started! Make your first move on my [profile](https://github.com/Tahmid1999)."
+    return True, "🆕 New game started! **You play White** vs 🤖 **AI (Black)**.\n\nMake your first move on my [profile](https://github.com/Tahmid1999)!"
 
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("Usage: chess_game.py <command> [args]")
-        print("  move <uci> [player]  - Make a move")
-        print("  new                  - Start new game")
         sys.exit(1)
 
     command = sys.argv[1]

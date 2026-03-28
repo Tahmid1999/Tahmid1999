@@ -17,9 +17,9 @@
 ---
 
 <!-- Community Chess Game -->
-## ♟️ Community Chess — Let's Play!
+## ♟️ Chess — You vs AI 🤖
 
-*Anyone can make a move! Click a link below to play.*
+*Play White against my AI! Click any move below — the bot responds instantly.*
 
 <!-- CHESS:START -->
 Move **#2** · 👥 1 players
