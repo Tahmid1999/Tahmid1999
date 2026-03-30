@@ -22,57 +22,33 @@
 *Play White against my AI! Click any move below — the bot responds instantly.*
 
 <!-- CHESS:START -->
-⬜ You (White) vs 🤖 AI (Black) · Move **#5** · 👥 1 players so far
+⬜ You (White) vs 🤖 AI (Black) · Move **#1**
 
 <div align="center">
-  <img src="chess/board-4.svg" alt="♟️ Community Chess" width="420" />
+  <img src="chess/board-0.svg" alt="♟️ Community Chess" width="420" />
 </div>
 
-📜 **Recent:** 1. `d2d4` `b8c6`🤖 2. `a2a3` `g8f6`🤖
+
 
 > ⬜ **Your turn (White)** — Click any move, the AI will respond! 🤖
 
 <details open><summary>🎯 Available Moves</summary>
 
-**♚ King**
-
-| From | Available Moves |
-|:----:|:----------------|
-| **e1** | [`d2`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Ce1d2&body=I%27m%20playing%20%2A%2AKing%2A%2A%20from%20%60e1%60%20%E2%86%92%20%60d2%60%0A%0A%2AThe%20AI%20will%20respond%20automatically%21%2A%20%F0%9F%A4%96%E2%99%9F%EF%B8%8F) |
-
-**♛ Queen**
-
-| From | Available Moves |
-|:----:|:----------------|
-| **d1** | [`d2`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Cd1d2&body=I%27m%20playing%20%2A%2AQueen%2A%2A%20from%20%60d1%60%20%E2%86%92%20%60d2%60%0A%0A%2AThe%20AI%20will%20respond%20automatically%21%2A%20%F0%9F%A4%96%E2%99%9F%EF%B8%8F) [`d3`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Cd1d3&body=I%27m%20playing%20%2A%2AQueen%2A%2A%20from%20%60d1%60%20%E2%86%92%20%60d3%60%0A%0A%2AThe%20AI%20will%20respond%20automatically%21%2A%20%F0%9F%A4%96%E2%99%9F%EF%B8%8F) |
-
-**♜ Rook**
-
-| From | Available Moves |
-|:----:|:----------------|
-| **a1** | [`a2`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Ca1a2&body=I%27m%20playing%20%2A%2ARook%2A%2A%20from%20%60a1%60%20%E2%86%92%20%60a2%60%0A%0A%2AThe%20AI%20will%20respond%20automatically%21%2A%20%F0%9F%A4%96%E2%99%9F%EF%B8%8F) |
-
-**♝ Bishop**
-
-| From | Available Moves |
-|:----:|:----------------|
-| **c1** | [`d2`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Cc1d2&body=I%27m%20playing%20%2A%2ABishop%2A%2A%20from%20%60c1%60%20%E2%86%92%20%60d2%60%0A%0A%2AThe%20AI%20will%20respond%20automatically%21%2A%20%F0%9F%A4%96%E2%99%9F%EF%B8%8F) [`e3`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Cc1e3&body=I%27m%20playing%20%2A%2ABishop%2A%2A%20from%20%60c1%60%20%E2%86%92%20%60e3%60%0A%0A%2AThe%20AI%20will%20respond%20automatically%21%2A%20%F0%9F%A4%96%E2%99%9F%EF%B8%8F) [`f4`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Cc1f4&body=I%27m%20playing%20%2A%2ABishop%2A%2A%20from%20%60c1%60%20%E2%86%92%20%60f4%60%0A%0A%2AThe%20AI%20will%20respond%20automatically%21%2A%20%F0%9F%A4%96%E2%99%9F%EF%B8%8F) [`g5`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Cc1g5&body=I%27m%20playing%20%2A%2ABishop%2A%2A%20from%20%60c1%60%20%E2%86%92%20%60g5%60%0A%0A%2AThe%20AI%20will%20respond%20automatically%21%2A%20%F0%9F%A4%96%E2%99%9F%EF%B8%8F) [`h6`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Cc1h6&body=I%27m%20playing%20%2A%2ABishop%2A%2A%20from%20%60c1%60%20%E2%86%92%20%60h6%60%0A%0A%2AThe%20AI%20will%20respond%20automatically%21%2A%20%F0%9F%A4%96%E2%99%9F%EF%B8%8F) |
-
 **♞ Knight**
 
 | From | Available Moves |
 |:----:|:----------------|
-| **b1** | [`c3`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Cb1c3&body=I%27m%20playing%20%2A%2AKnight%2A%2A%20from%20%60b1%60%20%E2%86%92%20%60c3%60%0A%0A%2AThe%20AI%20will%20respond%20automatically%21%2A%20%F0%9F%A4%96%E2%99%9F%EF%B8%8F) [`d2`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Cb1d2&body=I%27m%20playing%20%2A%2AKnight%2A%2A%20from%20%60b1%60%20%E2%86%92%20%60d2%60%0A%0A%2AThe%20AI%20will%20respond%20automatically%21%2A%20%F0%9F%A4%96%E2%99%9F%EF%B8%8F) |
+| **b1** | [`a3`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Cb1a3&body=I%27m%20playing%20%2A%2AKnight%2A%2A%20from%20%60b1%60%20%E2%86%92%20%60a3%60%0A%0A%2AThe%20AI%20will%20respond%20automatically%21%2A%20%F0%9F%A4%96%E2%99%9F%EF%B8%8F) [`c3`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Cb1c3&body=I%27m%20playing%20%2A%2AKnight%2A%2A%20from%20%60b1%60%20%E2%86%92%20%60c3%60%0A%0A%2AThe%20AI%20will%20respond%20automatically%21%2A%20%F0%9F%A4%96%E2%99%9F%EF%B8%8F) |
 | **g1** | [`f3`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Cg1f3&body=I%27m%20playing%20%2A%2AKnight%2A%2A%20from%20%60g1%60%20%E2%86%92%20%60f3%60%0A%0A%2AThe%20AI%20will%20respond%20automatically%21%2A%20%F0%9F%A4%96%E2%99%9F%EF%B8%8F) [`h3`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Cg1h3&body=I%27m%20playing%20%2A%2AKnight%2A%2A%20from%20%60g1%60%20%E2%86%92%20%60h3%60%0A%0A%2AThe%20AI%20will%20respond%20automatically%21%2A%20%F0%9F%A4%96%E2%99%9F%EF%B8%8F) |
 
 **♟ Pawn**
 
 | From | Available Moves |
 |:----:|:----------------|
-| **a3** | [`a4`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Ca3a4&body=I%27m%20playing%20%2A%2APawn%2A%2A%20from%20%60a3%60%20%E2%86%92%20%60a4%60%0A%0A%2AThe%20AI%20will%20respond%20automatically%21%2A%20%F0%9F%A4%96%E2%99%9F%EF%B8%8F) |
+| **a2** | [`a3`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Ca2a3&body=I%27m%20playing%20%2A%2APawn%2A%2A%20from%20%60a2%60%20%E2%86%92%20%60a3%60%0A%0A%2AThe%20AI%20will%20respond%20automatically%21%2A%20%F0%9F%A4%96%E2%99%9F%EF%B8%8F) [`a4`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Ca2a4&body=I%27m%20playing%20%2A%2APawn%2A%2A%20from%20%60a2%60%20%E2%86%92%20%60a4%60%0A%0A%2AThe%20AI%20will%20respond%20automatically%21%2A%20%F0%9F%A4%96%E2%99%9F%EF%B8%8F) |
 | **b2** | [`b3`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Cb2b3&body=I%27m%20playing%20%2A%2APawn%2A%2A%20from%20%60b2%60%20%E2%86%92%20%60b3%60%0A%0A%2AThe%20AI%20will%20respond%20automatically%21%2A%20%F0%9F%A4%96%E2%99%9F%EF%B8%8F) [`b4`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Cb2b4&body=I%27m%20playing%20%2A%2APawn%2A%2A%20from%20%60b2%60%20%E2%86%92%20%60b4%60%0A%0A%2AThe%20AI%20will%20respond%20automatically%21%2A%20%F0%9F%A4%96%E2%99%9F%EF%B8%8F) |
 | **c2** | [`c3`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Cc2c3&body=I%27m%20playing%20%2A%2APawn%2A%2A%20from%20%60c2%60%20%E2%86%92%20%60c3%60%0A%0A%2AThe%20AI%20will%20respond%20automatically%21%2A%20%F0%9F%A4%96%E2%99%9F%EF%B8%8F) [`c4`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Cc2c4&body=I%27m%20playing%20%2A%2APawn%2A%2A%20from%20%60c2%60%20%E2%86%92%20%60c4%60%0A%0A%2AThe%20AI%20will%20respond%20automatically%21%2A%20%F0%9F%A4%96%E2%99%9F%EF%B8%8F) |
-| **d4** | [`d5`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Cd4d5&body=I%27m%20playing%20%2A%2APawn%2A%2A%20from%20%60d4%60%20%E2%86%92%20%60d5%60%0A%0A%2AThe%20AI%20will%20respond%20automatically%21%2A%20%F0%9F%A4%96%E2%99%9F%EF%B8%8F) |
+| **d2** | [`d3`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Cd2d3&body=I%27m%20playing%20%2A%2APawn%2A%2A%20from%20%60d2%60%20%E2%86%92%20%60d3%60%0A%0A%2AThe%20AI%20will%20respond%20automatically%21%2A%20%F0%9F%A4%96%E2%99%9F%EF%B8%8F) [`d4`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Cd2d4&body=I%27m%20playing%20%2A%2APawn%2A%2A%20from%20%60d2%60%20%E2%86%92%20%60d4%60%0A%0A%2AThe%20AI%20will%20respond%20automatically%21%2A%20%F0%9F%A4%96%E2%99%9F%EF%B8%8F) |
 | **e2** | [`e3`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Ce2e3&body=I%27m%20playing%20%2A%2APawn%2A%2A%20from%20%60e2%60%20%E2%86%92%20%60e3%60%0A%0A%2AThe%20AI%20will%20respond%20automatically%21%2A%20%F0%9F%A4%96%E2%99%9F%EF%B8%8F) [`e4`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Ce2e4&body=I%27m%20playing%20%2A%2APawn%2A%2A%20from%20%60e2%60%20%E2%86%92%20%60e4%60%0A%0A%2AThe%20AI%20will%20respond%20automatically%21%2A%20%F0%9F%A4%96%E2%99%9F%EF%B8%8F) |
 | **f2** | [`f3`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Cf2f3&body=I%27m%20playing%20%2A%2APawn%2A%2A%20from%20%60f2%60%20%E2%86%92%20%60f3%60%0A%0A%2AThe%20AI%20will%20respond%20automatically%21%2A%20%F0%9F%A4%96%E2%99%9F%EF%B8%8F) [`f4`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Cf2f4&body=I%27m%20playing%20%2A%2APawn%2A%2A%20from%20%60f2%60%20%E2%86%92%20%60f4%60%0A%0A%2AThe%20AI%20will%20respond%20automatically%21%2A%20%F0%9F%A4%96%E2%99%9F%EF%B8%8F) |
 | **g2** | [`g3`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Cg2g3&body=I%27m%20playing%20%2A%2APawn%2A%2A%20from%20%60g2%60%20%E2%86%92%20%60g3%60%0A%0A%2AThe%20AI%20will%20respond%20automatically%21%2A%20%F0%9F%A4%96%E2%99%9F%EF%B8%8F) [`g4`](https://github.com/Tahmid1999/Tahmid1999/issues/new?title=chess%7Cmove%7Cg2g4&body=I%27m%20playing%20%2A%2APawn%2A%2A%20from%20%60g2%60%20%E2%86%92%20%60g4%60%0A%0A%2AThe%20AI%20will%20respond%20automatically%21%2A%20%F0%9F%A4%96%E2%99%9F%EF%B8%8F) |
